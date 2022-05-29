@@ -1,0 +1,1 @@
+{"Contract Name": "AttackGame", "Contract Address": "0x7D6E5d02520Ad216AeF54eB9C88dA7f777bD469D", "Contract Balance": 0, "Contract ABI": [{"inputs": [], "stateMutability": "nonpayable", "type": "constructor"}, {"inputs": [{"internalType": "address payable", "name": "_target", "type": "address"}], "name": "attack", "outputs": [], "stateMutability": "payable", "type": "function"}]}
