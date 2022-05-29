@@ -2,6 +2,11 @@
 
 The purpose of this playground is to have a simple server in GCP serving [Ganache](https://github.com/trufflesuite/ganache) that vulnerable smart contracts can be deployed to. Then a user can run the corresponding attack contract to understand the vulnerability. 
 
+Inspired by these channels:
+* [Block Explorer](https://www.youtube.com/c/BlockExplorerMedia)
+* [Dapp University](https://www.youtube.com/c/DappUniversity)
+* [MammothInteractive](https://www.youtube.com/c/MammothInteractive)
+* [Smart Contract Programmer](https://www.youtube.com/channel/UCJWh7F3AFyQ_x01VKzr9eyA)
 
 # Prerequisites
 
