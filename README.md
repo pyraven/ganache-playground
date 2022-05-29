@@ -6,7 +6,7 @@ The purpose of this playground is to have a simple server in GCP serving [Ganach
 # Prerequisites
 
 * A GCP project
-* Terraform and Python 3.8 installed locally
+* Terraform, Python 3.8, netcat installed locally
 * Git clone repo
 * Create key pair
 * Update variables/backend
@@ -44,8 +44,8 @@ ssh-keygen -t rsa -f playground-key -C <username>
 
 Open variables.tf in root folder with IDE/text editor and modify the following:
 * Update "project" to your GCP Project
-* Update "source-ip" to your IPv4 (https://whatismyipaddress.com/)
-* Update "user" to your username used in key creation step
+* Update "source-ip" to your [IPv4](https://whatismyipaddress.com/)
+* Update "user" to the username used in key creation step
 * Update "public_key_path" to name of public key
 * Update "private_key_path" to name of private key
 
@@ -62,10 +62,29 @@ terraform plan
 terraform apply
 ```
 
+To verify you can reach Ganache, run the output value when the Terraform apply is complete:
+```
+nc <gcp_instance_public_ip> 9000
+```
+
 ## Deploying contracts
 
-The smart contracts and code are all prewritten, you'll just need to run the python scripts to perform the attacks.
+The smart contracts and code are all prewritten, you'll just need to run the python scripts to deploy the contracts and perform the attacks. The workflow is:
 
-## Supported Smart Contract Vulnerabilities at the moment:
+```
+# deploy contracts, this will create two JSON files for the other scripts to use (for ABI/deployed contract addresses)
+
+python3.8 deploy.py --host <gcp_instance_public_ip>:9000
+
+# if available, some won't have this script, skip if not
+
+python3.8 play.py --host <gcp_instance_public_ip>:9000 
+
+# attack deployed contracts
+
+python3.8 attack.py --host <gcp_instance_public_ip>:9000
+```
+
+## Supported Smart Contract Vulnerabilities at the moment, more to come:
 * Reentrancy
 * Self Destruct
