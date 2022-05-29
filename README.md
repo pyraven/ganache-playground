@@ -72,6 +72,11 @@ To verify you can reach Ganache, run the output value when the Terraform apply i
 nc <gcp_instance_public_ip> 9000
 ```
 
+To get the current block number:
+```
+python3 status.py --host <gcp_instance_public_ip>:9000
+```
+
 ## Deploying contracts
 
 The smart contracts and code are all prewritten, you'll just need to run the python scripts to deploy the contracts and perform the attacks. The workflow is:
