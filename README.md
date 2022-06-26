@@ -43,9 +43,6 @@ git clone https://github.com/pyraven/ganache-playground
 Open variables.tf in root folder with IDE/text editor and modify the following:
 * Update "project" to your GCP Project
 * Update "source-ip" to your [IPv4](https://whatismyipaddress.com/)
-* Update "user" to the username used in key creation step
-* Update "public_key_path" to name of public key
-* Update "private_key_path" to name of private key
 
 ## Create a bucket to store state, modify backend.tf (Optional)
 
