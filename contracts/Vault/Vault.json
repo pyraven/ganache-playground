@@ -1,0 +1,1 @@
+{"Contract Name": "Vault", "Contract Address": "0xb940159553C0B1f6EB7d96fB890760Cf2f5DbD87", "Contract Balance": 0, "Contract ABI": [{"inputs": [{"internalType": "string", "name": "_username", "type": "string"}, {"internalType": "bytes32", "name": "_password", "type": "bytes32"}], "stateMutability": "nonpayable", "type": "constructor"}]}
