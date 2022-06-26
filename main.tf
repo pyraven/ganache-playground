@@ -32,6 +32,11 @@ resource "google_compute_firewall" "playground-allow-ssh" {
 # Computing
 ########################################
 
+resource "tls_private_key" "ssh_key" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
+
 resource "google_compute_instance" "playground-vm" {
   name         = "playground-vm"
   machine_type = "e2-medium"
@@ -53,15 +58,16 @@ resource "google_compute_instance" "playground-vm" {
   }
 
   metadata = {
-    ssh-keys = "${var.user}:${file(var.public_key_path)}"
+    enable-oslogin = "TRUE"
+    ssh-keys       = "ubuntu:${tls_private_key.ssh_key.public_key_openssh} ubuntu"
   }
 
   connection {
     host        = google_compute_instance.playground-vm.network_interface.0.access_config.0.nat_ip
     type        = "ssh"
-    user        = var.user
+    user        = "ubuntu"
     timeout     = "500s"
-    private_key = file(var.private_key_path)
+    private_key = tls_private_key.ssh_key.private_key_pem
     agent       = false
   }
 

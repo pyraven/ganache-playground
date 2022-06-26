@@ -22,18 +22,3 @@ variable "source-ip" {
   type    = string
   default = "<your_ip>"
 }
-
-variable "user" {
-  type    = string
-  default = "<key_username>"
-}
-
-variable "public_key_path" {
-  type    = string
-  default = "<path_to_key>"
-}
-
-variable "private_key_path" {
-  type    = string
-  default = "<path_to_private_key>"
-}
