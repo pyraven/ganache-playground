@@ -13,7 +13,6 @@ Inspired by these channels:
 * A GCP project
 * Terraform, Python 3.8, netcat installed locally
 * Git clone repo
-* Create key pair
 * Update variables/backend
 * Deploy
 
@@ -37,12 +36,6 @@ choco install terraform
 ## Clone repo locally
 ```
 git clone https://github.com/pyraven/ganache-playground
-```
-
-## Create key pair
-```
-cd ganache-playground/keys
-ssh-keygen -t rsa -f playground-key -C <username>
 ```
 
 ## Update variables.tf
@@ -75,6 +68,12 @@ nc <gcp_instance_public_ip> 9000
 To get the current block number:
 ```
 python3 status.py --host <gcp_instance_public_ip>:9000
+```
+
+### Accessing the instance for troubleshooting
+While recently authenticated, OS Login is enabled on the instance so running this command will allow you to SSH into the host if needed:
+```
+gcloud compute ssh --zone <zone> <instance_name>  --project <project_id>
 ```
 
 ## Deploying contracts
