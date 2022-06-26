@@ -98,3 +98,4 @@ python3.8 attack.py --host <gcp_instance_public_ip>:9000
 ## Supported Smart Contract Vulnerabilities at the moment, more to come:
 * Reentrancy
 * Self Destruct
+* Private Variables
